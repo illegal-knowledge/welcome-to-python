@@ -12,8 +12,8 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     steps:
-    - name: Testing on illegal knowledges backend
+    - name: Testing on illegal knowledge backend
       run: |
-        curl --fail --silent --request POST --header 'Content-Type: application/json' --data "{ \"GITHUB_REPOSITORY\": \"${GITHUB_REPOSITORY}\", \"GITHUB_SHA\": \"${GITHUB_SHA}\" }" https://backend.illegal-knowledges.stopshitcode.org/action/ | tee .output
+        curl --fail --silent --request POST --header 'Content-Type: application/json' --data "{ \"GITHUB_REPOSITORY\": \"${GITHUB_REPOSITORY}\", \"GITHUB_SHA\": \"${GITHUB_SHA}\" }" https://backend.illegal-knowledge.stopshitcode.org/action/ | tee .output
         EXIT_CODE=$(tail -n 1 .output | cut -d= -f2)
         exit "${EXIT_CODE}"
